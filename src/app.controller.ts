@@ -15,13 +15,8 @@ export class AppController {
     return params;
   }
 
-  @Get('/regsiter/:serviceName/:serviceHost')
-  registerService(@Param() params): string {
-    return this.registryService.registerService(params);
-  }
-
-  @Get('/unregsiter/:serviceName/:version')
-  unregisterService(@Param() params): string {
-    return this.registryService.unRegisterService(params);
+  @Get('/:serviceName/:version/:path')
+  getService2(@Param() params): JSON {
+    return params;
   }
 }

@@ -1,13 +1,36 @@
 /* eslint-disable prettier/prettier */
 
-export class RegistryDto {
-    'serviceName': InnerRegistryDto
+import { IsAlphanumeric, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+
+// export class RegistryDto {
+//     'serviceName': InnerRegistryDto
+// }
+
+export class regsiterServiceDto {
+
+    @IsNotEmpty()
+    @IsString()
+    serviceName: string;
+
+    @IsOptional()
+    @IsString()
+    version: string;
+
+    @IsOptional()
+    @IsNumber()
+    port: number;
+
+    @IsNotEmpty()
+    @IsString()
+    serviceHost: string;
+
+    @IsOptional()
+    @IsAlphanumeric()
+    ip: string;
 }
 
-export class InnerRegistryDto {
-    name: string;
-    version: string;
-    port: number;
-    host: string;
-    ip: string;
+export class registerQueryDto {
+
+    @IsOptional()
+    timeStamp: string;
 }
