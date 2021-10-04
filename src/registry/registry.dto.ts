@@ -26,7 +26,7 @@ export class regsiterServiceDto {
 
     @IsOptional()
     @IsAlphanumeric()
-    ip: string;
+    url: string;
 }
 
 export class registerQueryDto {

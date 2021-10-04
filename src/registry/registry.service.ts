@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { HttpService } from "@nestjs/axios";
 import { Injectable } from "@nestjs/common";
 import { registerQueryDto, regsiterServiceDto } from "./registry.dto";
 
@@ -7,14 +8,16 @@ import { registerQueryDto, regsiterServiceDto } from "./registry.dto";
 export class RegistryService {
 
     private registry = {
-        fakeApi: {
-            name: "FakeApi",
+        localhost: {
+            name: "localhsot",
             version: 'v1',
             port: 8080,
-            host: "https://www.fakeApi.com",
-            ip: "",
+            host: "http://localhost:8080",
+            url: "http://localhost.com",
         }
     };
+
+    constructor(private httpModule: HttpService){}
 
     allServices() {
         return this.registry;
@@ -22,15 +25,15 @@ export class RegistryService {
 
     registerService(params: regsiterServiceDto, query: registerQueryDto) {
 
-        const { serviceName, serviceHost, version = 'v1', port = '8080' } = params;
+        const { serviceName, serviceHost, version = 'v1', port = null } = params;
         const { timeStamp } = query;
 
         const service = {
             name: serviceName,
             version,
             port,
-            host: serviceHost,
-            ip: serviceHost,
+            host: port ? `${serviceHost}:${port}` : serviceHost,
+            url: serviceHost,
             timeStamp
         }
 
