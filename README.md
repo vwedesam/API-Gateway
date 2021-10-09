@@ -1,11 +1,16 @@
 # API GATEWAY
-
-## Description
 An API Gateway is a single-entry point for defined back-end APIs and microservices (which can be both internal and external). Sitting in front of APIs, the gateway acts as protector, enforcing security and ensuring scalability and high availability.
 
 ## Features
+## #register service
+     
+## #call service 
 
-### service registration, service accessibility 
+    
+## #unregister service
+    
+
+
 
 ## Installation and Usage
 
