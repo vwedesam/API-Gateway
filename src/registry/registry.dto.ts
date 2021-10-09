@@ -34,3 +34,14 @@ export class registerQueryDto {
     @IsOptional()
     timeStamp: string;
 }
+
+export class serviceDto {
+    ['']: {
+        name: string;
+        version: string;
+        port?: number;
+        serviceHost: string;
+        url: string;
+        timeStamp?: string;
+    }
+}
